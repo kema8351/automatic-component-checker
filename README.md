@@ -1,0 +1,9 @@
+# automatic-component-checker
+ビルド前にComponentのルールが守られているか全チェックするEditorScript
+https://qiita.com/kema/items/1ae9687811a5631a0024
+
+1. ルールが存在するComponentにIAutomaticCheckerを継承させてルールチェック処理を記述する。
+2. Check->Allを実行する。
+3. すべてのSceneとPrefabに存在するIAutomaticCheckerが検出され、ルールチェック処理が実行される。
+
+サンプルではCheck->Allを実行することで、CanvasSetterが存在するCanvasScalerが1024x768に設定され、ImageSetterが存在するImageは青色に設定されます。

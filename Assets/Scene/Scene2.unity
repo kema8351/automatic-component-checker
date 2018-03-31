@@ -175,7 +175,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &672883563
+--- !u!1001 &1367679542
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -272,15 +272,25 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114023525899004356, guid: fcfc9f1eb83f3454f8e2ee77d9f42b10,
+        type: 2}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114785759560703906, guid: fcfc9f1eb83f3454f8e2ee77d9f42b10,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114785759560703906, guid: fcfc9f1eb83f3454f8e2ee77d9f42b10,
         type: 2}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114785759560703906, guid: fcfc9f1eb83f3454f8e2ee77d9f42b10,
         type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fcfc9f1eb83f3454f8e2ee77d9f42b10, type: 2}

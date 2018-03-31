@@ -88,15 +88,12 @@ public class AutomaticChecker
         }
 
         // 編集前のシーン状態に戻す
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         if (openingScenePaths.Any())
         {
             EditorSceneManager.OpenScene(openingScenePaths[0], OpenSceneMode.Single);
             for (int i = 1; i < openingScenePaths.Length; i++)
                 EditorSceneManager.OpenScene(openingScenePaths[i], OpenSceneMode.Additive);
-        }
-        else
-        {
-            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         }
     }
 
@@ -106,7 +103,20 @@ public class AutomaticChecker
         bool hasChanged = false;
 
         foreach (var obj in GameObject.FindObjectsOfType<GameObject>())
+        {
+            GameObject original = PrefabUtility.GetPrefabParent(obj) as GameObject;
+            GameObject root = PrefabUtility.FindPrefabRoot(obj);
+
+            // スクリプトによる変更を有効にするためにPrefabとのリンクを切る
+            if (original != null)
+                PrefabUtility.DisconnectPrefabInstance(obj);
+            
             hasChanged |= CheckGameObject(obj, path);
+
+            // Prefabとのリンクを再接続
+            if (original != null)
+                PrefabUtility.ConnectGameObjectToPrefab(root, original);
+        }
 
         if (hasChanged)
         {
